@@ -1,12 +1,10 @@
 module.exports = function main(inputs) {
-    if (inputs.distance == 1 && inputs.parkTime == 5) {
-		return 7;
-	}else if (inputs.distance == 7 && inputs.parkTime == 10) {
-		return 13;
-	}else if (inputs.distance == 10 && inputs.parkTime == 20) {
-		return 18;
-	}else if (inputs.distance == 15 && inputs.parkTime == 0) {
-		return 19;
+	if (inputs.distance <= 2 ) {
+		return Math.round(6 + inputs.parkTime * 0.25);
+	}else if (inputs.distance > 2 && inputs.distance <= 8) {
+		return Math.round(6 + (inputs.distance - 2) * 0.8 + inputs.parkTime * 0.25);
+	}else if(inputs.distance > 8) {
+		return Math.round(6 + 6 * 0.8 + (inputs.distance - 8) * 1.2 + inputs.parkTime * 0.25);
 	}else {
 		return 0;
 	}
